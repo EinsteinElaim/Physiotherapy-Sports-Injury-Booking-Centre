@@ -1,0 +1,14 @@
+{{#partial "content"}}
+
+    <h1>List of patients!</h1>
+
+    {{#if patients}}
+        {{#each patients }}
+            <p>{{patientName}}</p>
+        {{/each}}
+    {{else}}
+     <p>No patients available!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}

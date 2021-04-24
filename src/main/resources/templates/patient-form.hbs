@@ -1,0 +1,47 @@
+{{#partial "content"}}
+
+    {{#if editPatient}}
+        <h1>Edit this Patient!</h1>
+        <form action="/patients/{{patient.patientId}}" method="post">
+        <br>
+            <p>Patient full name:{{patient.patientName}}</p>
+            <p>Address:{{patient.address}}</p>
+            <p>Weakness:{{patient.telephoneNumber}}</p>
+            <div class="form-group">
+                <label for="patientName" class="form-control-sm" >Edit this patient's full name:</label>
+                <input id="patientName" class="form-control-sm" name="patientName" type="text" value="{{patient.patientName}}">
+            </div>
+            <div class="form-group">
+                <label for="address" class="form-control-sm" >Edit this patient's address:</label>
+                <input id="address" class="form-control-sm" name="address" type="text" value="{{patient.address}}">
+            </div>
+            <div class="form-group">
+                <label for="telephoneNumber" class="form-control-sm" >Edit this patient's telephone number:</label>
+                <input id="telephoneNumber" class="form-control-sm" name="telephoneNumber" type="text" value="{{patient.telephoneNumber}}">
+            </div>
+            <br>
+            <p>Don't see the right patient?<a href="/patients/new">Add a new one first.</a></p>
+            <button type="submit" class="btn btn-primary">Update Patient!</button>
+        </form>
+    {{else}}
+        <h2>Add a new Patient!</h2>
+        <form action="/patients" method="post">
+            <div class="form-group">
+                <label for="patientName" class="form-control-sm">Patient name:</label>
+                <input id="patientName" class="form-control-sm" name="patientName" type="text">
+            </div>
+            <div class="form-group">
+                <label for="address" class="form-control-sm">Address:</label>
+                <input id="address" class="form-control-sm" name="address" type="text">
+            </div>
+            <div class="form-group">
+                <label for="telephoneNumber" class="form-control-sm">Telephone number:</label>
+                <input id="telephoneNumber" class="form-control-sm" name="telephoneNumber" type="text">
+            </div>
+            <p>Can't see the right patient?<a href="/patients/new">Add a new one here.</a></p>
+            <button type="submit" class="btn btn-primary">Add!</button>
+        </form>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}
